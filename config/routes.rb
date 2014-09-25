@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   
-  get 'about_us/' => 'about_us#view'
+  get 'contact/' => 'contact#view'
   
   resources :staffs
   resources :inventories  
