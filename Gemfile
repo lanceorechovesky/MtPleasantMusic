@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 
-
+#installs and converts most erb to haml
+gem 'html2haml', '~> 1.0.1'
+gem 'haml-rails', '~> 0.5.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use mysql2 as the database for Active Record
+gem 'mysql2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
