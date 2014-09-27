@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   
   get 'contact/' => 'contact#view'
+  get 'repairs/' => 'repairs#view'
+  get 'lessons/' => 'lessons#view'
   
   resources :staffs
   resources :inventories  
