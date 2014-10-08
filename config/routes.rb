@@ -3,10 +3,17 @@ Rails.application.routes.draw do
   root 'welcome#index'
   
   get 'contact/' => 'contact#view'
-  get 'repairs/' => 'repairs#view'
+  # get 'repairs/' => 'repairs#view'
   get 'lessons/' => 'lessons#view'
   
   resources :staffs
+  resources :repairs do
+    member do
+      put :not_started
+      put :in_progress
+      put :finished
+    end
+  end
   resources :inventories do
     resources :sub_items
   end 

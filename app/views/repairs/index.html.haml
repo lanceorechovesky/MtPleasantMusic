@@ -1,0 +1,62 @@
+.container
+  / Page Heading/Breadcrumbs
+  .row
+    .col-lg-12
+      - if user_signed_in?
+        %ol.breadcrumb
+          %li
+            %a{:href => "/"} Home
+          %li.active 
+            = link_to "add repair", new_repair_path
+/ Intro Content
+- group_number_total = 0
+.row 
+  .col-md-6
+    %h2#repair_title We Can Fix It!
+    %p it doesn't matter what kind of instument or how old it is. if it doesnt sound the way it use to or is flat out broken, bring it to Mt. Pleasant Music. our owner has been working on and repairing instruments for well over 30 years and loves every secound of it. We'll get it back to the way you remember it.
+    .col-md-12
+      #accordion.panel-group
+      - Repair.all.each_slice(3) do |repair_group|
+        - group_number_total += 1
+        - repair_group.each do |repair|
+          .panel.panel-default{class: "#{'hidden' if group_number_total >= 2} group_#{group_number_total} repair_list"}
+            .panel-heading
+              %h4.panel-title
+                %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse_#{repair.id}"}
+                  = "#{repair.name}---#{repair.workflow_state}"
+                  = link_to "Delete", repair_path(repair), method: :delete
+            .panel-collapse.collapse{id: "collapse_#{repair.id}"}
+              .panel-body
+                - if repair.workflow_state == "not_started"
+                  = link_to "Start Repair", in_progress_repair_path(repair), method: :put
+                - else
+                  = "testing testing"
+      - group_number_total.times do |x|
+        %ul.pagination
+          %li
+            = link_to x + 1, "javascript:void(0);", class: "new_page"           
+          / /.panel
+  .col-md-6
+    %img.img-responsive{:alt => "", :src => "http://www.avenue-guitars.com/Store%20Pics/AG%20-%20Repairs2.jpg"}  
+/ /.row
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

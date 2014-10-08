@@ -5,10 +5,10 @@
       %h1.page-header
         Store Inventory
         %small The things we have!
-      %ol.breadcrumb
-        %li
-          %a{:href => "/"} Home
-        - if user_signed_in?
+      - if user_signed_in?
+        %ol.breadcrumb
+          %li
+            %a{:href => "/"} Home
           %li.active 
             = link_to "add inventory", new_inventory_path
 

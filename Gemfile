@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# controls the repair tracker statuses 
+gem 'workflow'
 #handles users and user accounts
 gem 'devise', '~> 3.4.0'
 #installs and converts most erb to haml
