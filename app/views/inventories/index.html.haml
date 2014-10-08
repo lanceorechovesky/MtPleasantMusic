@@ -1,0 +1,34 @@
+.container
+  / Page Heading/Breadcrumbs
+  .row
+    .col-lg-12
+      %h1.page-header
+        Store Inventory
+        %small The things we have!
+      %ol.breadcrumb
+        %li
+          %a{:href => "/"} Home
+        - if user_signed_in?
+          %li.active 
+            = link_to "add inventory", new_inventory_path
+
+  .row
+    - @inventories.each do |inventory|
+      .col-md-4.img-portfolio
+        %a{:href => "portfolio-item.html"}
+          %img.img-responsive.img-hover{:alt => "", :src => "http://placehold.it/700x400"}
+        %h3
+          = link_to "#{inventory.item_type}", inventory_sub_items_path(inventory)
+        = "#{inventory.disc}"
+    / .col-md-4.img-portfolio
+    /   %a{:href => "portfolio-item.html"}
+    /     %img.img-responsive.img-hover{:alt => "", :src => "http://placehold.it/700x400"}
+    /   %h3
+    /     %a{:href => "portfolio-item.html"} Trumpets
+    /   %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+    / .col-md-4.img-portfolio
+    /   %a{:href => "portfolio-item.html"}
+    /     %img.img-responsive.img-hover{:alt => "", :src => "http://placehold.it/700x400"}
+    /   %h3
+    /     %a{:href => "portfolio-item.html"} Drums
+    /   %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.

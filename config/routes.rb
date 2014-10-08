@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'welcome#index'
   
   get 'contact/' => 'contact#view'
@@ -6,7 +7,9 @@ Rails.application.routes.draw do
   get 'lessons/' => 'lessons#view'
   
   resources :staffs
-  resources :inventories  
+  resources :inventories do
+    resources :sub_items
+  end 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

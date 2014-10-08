@@ -1,0 +1,23 @@
+.container
+  / Page Heading/Breadcrumbs
+  .row
+    .col-lg-12
+      %h1.page-header
+        = "#{@inventory.item_type}"
+        %small The things we have!
+      %ol.breadcrumb
+        %li
+          %a{:href => "/"} Home
+        %li
+          %a{:href => "/inventories"} Item Types
+        %li.active 
+          = link_to "add #{@inventory.item_type}", new_inventory_sub_item_path(@inventory)
+
+  .row
+    - @subitems.each do |subitem|
+      .col-md-4.img-portfolio
+        %a{:href => "portfolio-item.html"}
+          %img.img-responsive.img-hover{:alt => "", :src => "http://placehold.it/700x400"}
+        %h3
+          = link_to "#{subitem.type}", inventory_sub_item_path(subitem, @invetory)
+        = "#{subitem.name}"

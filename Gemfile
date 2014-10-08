@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+#handles users and user accounts
+gem 'devise', '~> 3.4.0'
 #installs and converts most erb to haml
 gem 'html2haml', '~> 1.0.1'
 gem 'haml-rails', '~> 0.5.3'

@@ -8,17 +8,20 @@
   / Wrapper for slides
   .carousel-inner
     .item.active
-      .fill{:style => "background-image:url('http://placehold.it/1900x1080&text=Slide One');"}
+      .fill{:style => "background-image:url('http://www.taylorguitars.com/sites/default/files/hero-acoustic-guitars-browse-by-shape-taylor-guitars.jpg');"}
       .carousel-caption
-        %h2 Caption 1
+        %h2 
+          = link_to "Mt. Pleasant Music", staffs_path
     .item
-      .fill{:style => "background-image:url('http://placehold.it/1900x1080&text=Slide Two');"}
+      .fill{:style => "background-image:url('https://tunessence.com/blog/wp-content/uploads/2013/08/Electric_guitar_477101105.jpg');"}
       .carousel-caption
-        %h2 Caption 2
+        %h2 
+          = link_to "Guitar Lessions", lessons_path
     .item
-      .fill{:style => "background-image:url('http://placehold.it/1900x1080&text=Slide Three');"}
+      .fill{:style => "background-image:url('http://www.avenue-guitars.com/Store%20Pics/AG%20-%20Repairs2.jpg');"}
       .carousel-caption
-        %h2 Caption 3
+        %h2 
+          = link_to "Insturment Repairs", repairs_path
   / Controls
   %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel"}
     %span.icon-prev

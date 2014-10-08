@@ -41,16 +41,20 @@
             %li
               %a{:href => "/staffs"} About Us
             %li
-              %a{:href => "/contact"} Contact          
-            / %li.dropdown
-            /   %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-            /     Account
-            /     %b.caret
-            /   %ul.dropdown-menu{:role => "menu"}
-            /     %li
-            /       %a{:href => "full-width.html"} Edit Account
-            /     %li
-            /       %a{:href => "sidebar.html"} logout
-        / /.navbar-collapse
-      / /.container
+              %a{:href => "/contact"} Contact
+            - if user_signed_in?          
+              %li.dropdown
+                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  Account
+                  %b.caret
+                %ul.dropdown-menu{:role => "menu"}
+                  %li
+                    %a{:href => "/users/edit"} Edit Account
+                  %li
+                    = link_to "Sign out", destroy_user_session_path, method: :delete
+            - else
+              %li
+                = link_to "Sign In", new_user_session_path
+        /.navbar-collapse
+      /.container
     = yield
