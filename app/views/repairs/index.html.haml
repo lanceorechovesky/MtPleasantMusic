@@ -23,14 +23,18 @@
             .panel-heading
               %h4.panel-title
                 %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse_#{repair.id}"}
-                  = "#{repair.name}---#{repair.workflow_state}"
-                  = link_to "Delete", repair_path(repair), method: :delete
+                  = "#{repair.name} is #{repair.workflow_state}"
+                  - if user_signed_in?
+                    |
+                    = link_to "Delete", repair_path(repair), method: :delete
+                    |
+                    - if repair.workflow_state == "not_started"
+                      = link_to "Start Repair", in_progress_repair_path(repair), method: :put
+                    - if repair.workflow_state == "in_progress"
+                      = link_to "Finish Repair", finished_repair_path(repair), method: :put
             .panel-collapse.collapse{id: "collapse_#{repair.id}"}
               .panel-body
-                - if repair.workflow_state == "not_started"
-                  = link_to "Start Repair", in_progress_repair_path(repair), method: :put
-                - else
-                  = "testing testing"
+                = "just a test"
       - group_number_total.times do |x|
         %ul.pagination
           %li

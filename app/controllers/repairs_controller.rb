@@ -26,6 +26,16 @@ class RepairsController < ApplicationController
     redirect_to repairs_path
   end
 
+  def in_progress
+    @repair = find_repair.started!
+    redirect_to repairs_path
+  end
+
+  def finished
+    @repair = find_repair.finishing!
+    redirect_to repairs_path
+  end
+
 private
 
   def find_repair
