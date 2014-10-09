@@ -20,9 +20,9 @@
       %h3
         = "Add a new #{@inventory.item_type}"
       = form_for [@inventory, @subitem] do |f|
-        = f.label :type
+        = f.label :brand
         %br/
-        = f.text_field :type
+        = f.text_field :brand
         %br/
         %br/
         = f.label :name 
@@ -33,6 +33,11 @@
         = f.label :price
         %br/
         = f.number_field :price
+        %br/
+        %br/
+        = f.label :avatar
+        %br/
+        = f.file_field :avatar
         %br/
         %br/
         = f.submit "Add"

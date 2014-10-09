@@ -1,0 +1,25 @@
+.container
+  / Page Heading/Breadcrumbs
+  .row
+    .col-lg-12
+      %h1.page-header
+        Repairs 
+        %small
+          = "Edit #{@repair.name}"
+      %ol.breadcrumb
+        %li
+          %a{:href => "/"} Home
+        %li
+          %a{:href => "/repairs"} Repairs
+        %li.active Edit Repair
+  / /.row
+  .row
+    .col-md-1
+    .col-md-5
+      = form_for @repair do |f|
+        = f.label :name
+        %br/
+        = f.text_field :name
+        %br/
+        %br/
+        = f.submit

@@ -9,16 +9,22 @@
         %ol.breadcrumb
           %li
             %a{:href => "/"} Home
-          %li.active 
+          %li.active
             = link_to "add inventory", new_inventory_path
 
   .row
     - @inventories.each do |inventory|
       .col-md-4.img-portfolio
         %a{:href => "portfolio-item.html"}
-          %img.img-responsive.img-hover{:alt => "", :src => "http://placehold.it/700x400"}
+          %img.img-responsive.img-hover.paperclip      
+            = image_tag inventory.avatar.url
         %h3
           = link_to "#{inventory.item_type}", inventory_sub_items_path(inventory)
+          - if user_signed_in?
+            |
+            = link_to "Edit", edit_inventory_path(inventory)
+            |
+            = link_to "Delete", inventory_path(inventory), method: :delete
         = "#{inventory.disc}"
     / .col-md-4.img-portfolio
     /   %a{:href => "portfolio-item.html"}

@@ -10,14 +10,23 @@
           %a{:href => "/"} Home
         %li
           %a{:href => "/inventories"} Item Types
-        %li.active 
-          = link_to "add #{@inventory.item_type}", new_inventory_sub_item_path(@inventory)
+        %li.active
+          - if user_signed_in?
+            = link_to "add #{@inventory.item_type}", new_inventory_sub_item_path(@inventory)
+          - else
+            = "#{@inventory.item_type}"
 
   .row
-    - @subitems.each do |subitem|
+    - @inventory.sub_items.each do |subitem|
       .col-md-4.img-portfolio
         %a{:href => "portfolio-item.html"}
-          %img.img-responsive.img-hover{:alt => "", :src => "http://placehold.it/700x400"}
+          %img.img-responsive.img-hover
+            = image_tag subitem.avatar.url
         %h3
-          = link_to "#{subitem.type}", inventory_sub_item_path(subitem, @invetory)
+          = link_to "#{subitem.brand}", inventory_sub_items_path(@inventory)
+          - if user_signed_in?
+            |
+            = link_to "Edit", edit_inventory_sub_item_path(@inventory, subitem)
+            |
+            = link_to "Delete", inventory_sub_item_path(@inventory, subitem), method: :delete
         = "#{subitem.name}"

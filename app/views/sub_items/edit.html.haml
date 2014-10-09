@@ -1,0 +1,64 @@
+.container
+  / Page Heading/Breadcrumbs
+  .row
+    .col-lg-12
+      %h1.page-header
+        = "Edit"
+        %small 
+          = "#{@subitem.brand} #{@subitem.name}"
+      %ol.breadcrumb
+        %li
+          %a{:href => "/"} Home
+        %li
+          %a{:href => "/inventories"} Item Types
+        %li
+          = link_to "#{@inventory.item_type}", inventory_sub_items_path(@inventory)
+        %li.active 
+          = "Editing #{@subitem.brand} #{@subitem.name}"
+
+  .row
+    .col-md-1
+    .col-md-5
+      %h3
+        = "Edit #{@subitem.brand} #{@subitem.name}"
+      = form_for [@inventory, @subitem] do |f|
+        = f.label :brand
+        %br/
+        = f.text_field :brand
+        %br/
+        %br/
+        = f.label :name 
+        %br/
+        = f.text_field :name
+        %br/
+        %br/
+        = f.label :price
+        %br/
+        = f.number_field :price
+        %br/
+        %br/
+        = f.label :avatar
+        %br/
+        = f.file_field :avatar
+        %br/
+        %br/
+        = f.submit "Add"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

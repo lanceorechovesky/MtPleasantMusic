@@ -7,6 +7,6 @@ $(document).ready(function() {
       console.log(new_page)
       $(".repair_list").addClass("hidden")
       $(".group_" + new_page).removeClass("hidden")
-    })  
+  })  
 
 })

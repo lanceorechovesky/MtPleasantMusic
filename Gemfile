@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+#allows the map in the contact section
+gem 'gmaps4rails'
+#allows me to "assign" pictures to my database items
+gem "paperclip", "~> 4.2"
 # controls the repair tracker statuses 
 gem 'workflow'
 #handles users and user accounts
@@ -23,7 +27,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.

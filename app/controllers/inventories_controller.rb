@@ -26,7 +26,7 @@ class InventoriesController < ApplicationController
 
   def update
     if @inventory.update_attributes inventory_data
-      redirect_to inventory_path(@inventory)
+      redirect_to inventories_path
     else
       render :edit
     end
@@ -43,7 +43,7 @@ private
   end
 
   def inventory_data
-    params.require(:inventory).permit(:item_type, :related_instrument, :price, :in_stock, :disc)
+    params.require(:inventory).permit(:item_type, :related_instrument, :price, :in_stock, :disc, :avatar)
   end
 end
 

@@ -10,6 +10,7 @@
             = link_to "add repair", new_repair_path
 / Intro Content
 - group_number_total = 0
+- comment_group_number_total = 0
 .row 
   .col-md-6
     %h2#repair_title We Can Fix It!
@@ -28,20 +29,38 @@
                     |
                     = link_to "Delete", repair_path(repair), method: :delete
                     |
+                    = link_to "Edit", edit_repair_path(repair)
+                    |
                     - if repair.workflow_state == "not_started"
                       = link_to "Start Repair", in_progress_repair_path(repair), method: :put
                     - if repair.workflow_state == "in_progress"
                       = link_to "Finish Repair", finished_repair_path(repair), method: :put
             .panel-collapse.collapse{id: "collapse_#{repair.id}"}
               .panel-body
-                = "just a test"
+                .row
+                  .col-md-6
+                    = form_for @comment, url: create_comment_repair_path(repair) do |f|
+                      = f.label :body
+                      %br/
+                      = f.text_area :body
+                      %br/
+                      %br/
+                      = f.submit
+                  .col-md-6
+                    - repair.comments.each do |comment|
+                      - if comment.body
+                        %li
+                          = comment.body
+                          - if user_signed_in?
+                            = link_to "Delete", destroy_comment_repair_path(repair, comment_id: comment.id), method: :delete
+  
       - group_number_total.times do |x|
         %ul.pagination
           %li
             = link_to x + 1, "javascript:void(0);", class: "new_page"           
           / /.panel
   .col-md-6
-    %img.img-responsive{:alt => "", :src => "http://www.avenue-guitars.com/Store%20Pics/AG%20-%20Repairs2.jpg"}  
+    %img.img-responsive{:alt => "", :src => "http://www.chicagofretworks.com/wp-content/uploads/2008/09/lpjr-heastock-join-018.jpg"}  
 / /.row
 
 

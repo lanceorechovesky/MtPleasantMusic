@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :staffs
   resources :repairs do
     member do
+      post :create_comment
+      delete :destroy_comment
       put :not_started
       put :in_progress
       put :finished

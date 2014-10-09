@@ -1,0 +1,48 @@
+.container
+  / Page Heading/Breadcrumbs
+  .row
+    .col-lg-12
+      %h1.page-header
+        Inventory 
+        %small
+          = "Change #{@inventory.item_type}"
+      %ol.breadcrumb
+        %li
+          %a{:href => "/"} Home
+        %li
+          %a{:href => "/inventories"} Inventory
+        %li.active
+          = "Change #{@inventory.item_type}"
+  / /.row
+  .row
+    .col-md-1
+    .col-md-5
+      %h3
+        = "Change #{@inventory.item_type}"
+      = form_for @inventory do |f|
+        = f.label :item_type
+        %br/
+        = f.text_field :item_type
+        %br/
+        %br/
+        = f.label :related_instrument 
+        %br/
+        = f.text_field :related_instrument
+        %br/
+        %br/
+        = f.label :price
+        %br/
+        = f.number_field :price
+        %br/
+        %br/
+        = f.label :disc
+        %br/
+        = f.text_area :disc
+        %br/
+        %br/
+        = f.label :avatar
+        %br/
+        = f.file_field :avatar
+        %br/
+        %br/
+        = f.submit

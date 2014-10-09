@@ -5,17 +5,18 @@
       %h1.page-header
         Contact
         %small Information
-      %ol.breadcrumb
-        %li
-          %a{:href => "index.html"} Home
-        %li.active Contact
+      / %ol.breadcrumb
+      /   %li
+      /     %a{:href => "index.html"} Home
+      /   %li.active Contact
   / /.row
   / Content Row
   .row
     / Map Column
     .col-md-8
       / Embedded Google Map
-      %iframe{:frameborder => "0", :height => "400px", :marginheight => "0", :marginwidth => "0", :scrolling => "no", :src => "http://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;ll=37.0625,-95.677068&amp;spn=56.506174,79.013672&amp;t=m&amp;z=4&amp;output=embed", :width => "100%"}
+      %div{:style => "width: 600px;"}
+        #map{:style => "width: 600px; height: 400px;"}
     / Contact Details Column
     .col-md-4
       %h3 How to find us

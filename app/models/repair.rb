@@ -1,4 +1,6 @@
 class Repair < ActiveRecord::Base
+  has_many :comments, as: :commentable
+
   include Workflow
   workflow do 
     state :not_started do

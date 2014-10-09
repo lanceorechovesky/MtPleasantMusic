@@ -12,12 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 //= require jquery-1.11.0
 //= require bootstrap.min
 //= require jqBootstrapValidation
 //= require contact_me
+//= require underscore
+//= require gmaps/google
 
 
 
