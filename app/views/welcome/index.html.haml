@@ -10,17 +10,17 @@
     .item.active
       .fill{:style => "background-image:url('http://www.taylorguitars.com/sites/default/files/hero-acoustic-guitars-browse-by-shape-taylor-guitars.jpg');"}
       .carousel-caption
-        %h2 
+        %h2#carsol_links
           = link_to "Mt. Pleasant Music", staffs_path
     .item
       .fill{:style => "background-image:url('https://tunessence.com/blog/wp-content/uploads/2013/08/Electric_guitar_477101105.jpg');"}
       .carousel-caption
-        %h2 
-          = link_to "Guitar Lessions", lessons_path
+        %h2#carsol_links 
+          = link_to "For Sale", inventories_path
     .item
       .fill{:style => "background-image:url('http://www.avenue-guitars.com/Store%20Pics/AG%20-%20Repairs2.jpg');"}
       .carousel-caption
-        %h2 
+        %h2#carsol_links
           = link_to "Insturment Repairs", repairs_path
   / Controls
   %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel"}

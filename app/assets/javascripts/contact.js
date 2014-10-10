@@ -12,7 +12,7 @@ $(document).ready(function() {
           "width":  36,
           "height": 36
         },
-        "infowindow": "hello!"
+        "infowindow": "Hey There!"
       }
     ]);
     handler.bounds.extendWith(markers);
